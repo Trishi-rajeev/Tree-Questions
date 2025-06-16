@@ -1,0 +1,29 @@
+class Solution {
+    void mirror(Node node) {
+        // Your code here
+        if(node==null){
+            return;
+        }
+        
+        if(node.left==null && node.right!=null){
+            Node temp1 = node.left;
+            node.left = node.right;
+            node.right = temp1;
+            
+        }
+        
+        else if(node.left!=null && node.right==null){
+            Node temp2 = node.right;
+            node.right = node.left;
+            node.left = temp2;
+        }
+        else{
+            Node temp = node.left;
+            node.left = node.right;
+            node.right = temp;
+        }
+        
+        mirror(node.left);
+        mirror(node.right);
+    }
+}
